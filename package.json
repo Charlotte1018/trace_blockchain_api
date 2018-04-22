@@ -1,0 +1,29 @@
+{
+  "name": "traceability",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "include-all": "^1.0.0",
+    "rc": "1.0.1",
+    "sails": "~0.12.14",
+    "sails-disk": "^0.10.10",
+    "sails-mysql": "^0.11.5",
+    "web3": "^0.20.4"
+  },
+  "scripts": {
+    "debug": "node debug app.js",
+    "start": "node app.js",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate",
+    "deploy": "truffle deploy"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xue/traceability.git"
+  },
+  "author": "xue",
+  "license": ""
+}
