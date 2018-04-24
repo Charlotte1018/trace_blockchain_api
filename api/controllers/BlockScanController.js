@@ -9,8 +9,8 @@ module.exports = {
     },
     regs: (req, res) => {
         let params = req.body;
-        let account = Web3.eth.accounts[params._type];
-        let password = '1';
+        let account = params.account;
+        let password = params.password;
         let unlock = Web3.personal.unlockAccount(account, password);
         let contractInstance = contractInstanceUtils.getBlockScanContractInstance();
         // let txsNum = contractInstance.txsNum.call();
@@ -40,10 +40,11 @@ module.exports = {
         contractInstance.testStockIn(
             {
                 from: account,
-                gas: 10000000
+                gas: 800000
             },
             (error, result) => {
-                if (error) return res.send(Message.messages(0, '出错了', error));
+                // console.log(error);
+                if (error) { return res.send(Message.messages(0, '出错了', error)); }
                 return res.send(Message.messages(1, '交易哈希', { transactionHash: result }));
             }
         );
@@ -67,7 +68,7 @@ module.exports = {
     },
     quality: (req, res) => {
         let params = req.body;
-        let account = Web3.eth.accounts[3];
+        let account = Web3.eth.accounts[5];
         let password = '1';
         let unlock = Web3.personal.unlockAccount(account, password);
         let contractInstance = contractInstanceUtils.getBlockScanContractInstance();
